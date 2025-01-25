@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5trrx21l6bmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bia2"]
+size = Vector2(128, 128)
+
+[node name="plant_pot" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-64, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_6bia2")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-64, 0)
+color = Color(0.38811, 0.14373, 0.0352401, 1)
+polygon = PackedVector2Array(0, -64, 128, -64, 128, 64, 0, 64, 0, 0)

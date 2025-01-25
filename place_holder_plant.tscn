@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c83c8bblawp1h"]
+
+[ext_resource type="Script" path="res://plant.gd" id="1_m34j3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atjwm"]
+
+[node name="place_holder_plant" type="Node2D"]
+script = ExtResource("1_m34j3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_atjwm")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
+position = Vector2(8, 0)
+color = Color(0.218354, 0.583258, 0.302877, 1)
+polygon = PackedVector2Array(-16, 0, -16, -80, -32, -80, -32, -96, -16, -96, -16, -112, -32, -128, -16, -128, 0, -128, 0, -112, 16, -96, 0, -96, 0, -80, 0, 0)
