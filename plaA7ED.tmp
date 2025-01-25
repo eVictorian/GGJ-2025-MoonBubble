@@ -129,7 +129,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="fertilize" parent="Panel/fertilize_menu" instance=ExtResource("5_sslba")]
-self_modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 128.0
 offset_top = 120.0
@@ -137,22 +136,18 @@ offset_right = 192.0
 offset_bottom = 184.0
 
 [node name="fertilize2" parent="Panel/fertilize_menu" instance=ExtResource("5_sslba")]
-visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_top = 120.0
 offset_right = 264.0
 offset_bottom = 184.0
-index = 1
 
 [node name="fertilize3" parent="Panel/fertilize_menu" instance=ExtResource("5_sslba")]
-visible = false
 layout_mode = 0
 offset_left = 272.0
 offset_top = 120.0
 offset_right = 336.0
 offset_bottom = 184.0
-index = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ceidf84666hkb"]
+
+[node name="market" type="Node2D"]
+
+[node name="placeholder_visual" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(16, 0, 16, 24, 24, 24, 24, 32, 0, 40, 0, 64, 64, 64, 64, 32, 56, 32, 56, 24, 64, 24, 64, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -21,6 +21,16 @@ func add_plant_time(time) -> void:
 			var pot = $pots.get_child(i)
 			if pot.get_child_count() > 3:
 				if pot.water_left > 0:
+					var fertalizers = pot.get_child(2).get_child(5)
+					for f in range(fertalizers.get_child_count()):
+						print(fertalizers.get_child(f).active)
+						if fertalizers.get_child(f).active == true:
+							print("AHSAgh")
+							if Global.plant_products[fertalizers.get_child(f).plant_key]["storage"] >= fertalizers.get_child(f).quantity_per_hour:
+								Global.plant_products[fertalizers.get_child(f).plant_key]["storage"] -= fertalizers.get_child(f).quantity_per_hour
+							else:
+								pot.deactivateFertilizer(f)
+								
 					pot.get_child(3).time_passed(1)
 					pot.water_left -= 1
 				else:

@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 		$Panel/water_time.text = str(water_left)+"Hs"
 		
 		if Input.is_action_pressed("interact"):
-			print(wattering_progress)
 			if wattering_progress >= 100:
 				if water_left < max_water:
 					water_left += 1
@@ -44,6 +43,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if get_child_count() > 3:
 			$Panel/time_left.visible = true
 			$Panel/fertilize_menu.visible = true
+			refresh_fertilizer()
 		else:
 			$Panel/time_left.visible = false
 			$Panel/fertilize_menu.visible = false
@@ -68,4 +68,26 @@ func _on_button_pressed() -> void:
 func new_plant(plant_scene: PackedScene) -> void:
 	var new_plant = plant_scene.instantiate()
 	add_child(new_plant)
+	$Panel/time_left.visible = true
+	$Panel/fertilize_menu.visible = true
+	refresh_fertilizer()
 	
+
+func activateFertilizer(index: int):
+	get_child(3).hours_left /= 2
+	get_child(2).get_child(5).get_child(index).self_modulate = Color(1,0,0)
+	get_child(2).get_child(5).get_child(index).active = true
+func deactivateFertilizer(index: int):
+	get_child(3).hours_left *= 2
+	get_child(2).get_child(5).get_child(index).active = false
+	get_child(2).get_child(5).get_child(index).self_modulate = Color(0,1,0)
+	
+func refresh_fertilizer():
+	for i in range($Panel/fertilize_menu.get_child_count()):
+		$Panel/fertilize_menu.get_child(i).visible = false
+	var fertilizers = Global.plants[get_child(3).plant_key]["fertalizer"]
+	if fertilizers[0][0] != "none":
+		for i in range(len(fertilizers)):
+			$Panel/fertilize_menu.get_child(i).visible = true
+			$Panel/fertilize_menu.get_child(i).plant_key = fertilizers[i][0]
+			$Panel/fertilize_menu.get_child(i).quantity_per_hour = fertilizers[i][1]

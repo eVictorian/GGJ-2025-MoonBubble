@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://player.gd" id="1_xujb3"]
 [ext_resource type="PackedScene" uid="uid://b5trrx21l6bmk" path="res://plant_pot.tscn" id="2_kgt76"]
 [ext_resource type="FontFile" uid="uid://bmqhcx5n4lqx6" path="res://Minecraft.ttf" id="2_lr6cg"]
-[ext_resource type="PackedScene" uid="uid://c83c8bblawp1h" path="res://place_holder_plant.tscn" id="3_30csq"]
 [ext_resource type="Script" path="res://bed.gd" id="4_6ki5i"]
+[ext_resource type="PackedScene" uid="uid://d0eyrwd706yg0" path="res://plant_storage.tscn" id="6_5lnq4"]
 
 [sub_resource type="Theme" id="Theme_5klw2"]
 default_font = ExtResource("2_lr6cg")
@@ -37,7 +37,7 @@ timer = NodePath("hour")
 
 [node name="Polygon2D" type="Polygon2D" parent="UI"]
 color = Color(0.388955, 0.596713, 0.998258, 0.666667)
-polygon = PackedVector2Array(0, 128, 640, 128, 512, 0, 0, 0)
+polygon = PackedVector2Array(0, 128, 640, 128, 640, 0, 0, 0)
 
 [node name="time" type="RichTextLabel" parent="UI"]
 offset_left = 64.0
@@ -148,23 +148,25 @@ shape = SubResource("RectangleShape2D_fd3y6")
 
 [node name="pots" type="Node2D" parent="."]
 
+[node name="plant_pot" parent="pots" instance=ExtResource("2_kgt76")]
+visible = false
+position = Vector2(320, 704)
+
 [node name="plant_pot2" parent="pots" instance=ExtResource("2_kgt76")]
+visible = false
 position = Vector2(576, 704)
 
 [node name="plant_pot3" parent="pots" instance=ExtResource("2_kgt76")]
+visible = false
 position = Vector2(832, 704)
 
 [node name="plant_pot4" parent="pots" instance=ExtResource("2_kgt76")]
+visible = false
 position = Vector2(1088, 704)
 
 [node name="plant_pot5" parent="pots" instance=ExtResource("2_kgt76")]
+visible = false
 position = Vector2(1344, 704)
-
-[node name="plant_pot" parent="pots" instance=ExtResource("2_kgt76")]
-position = Vector2(320, 704)
-
-[node name="place_holder_plant" parent="pots/plant_pot" instance=ExtResource("3_30csq")]
-show_behind_parent = true
 
 [node name="bed" type="Node2D" parent="."]
 position = Vector2(544, 992)
@@ -213,6 +215,49 @@ shape = SubResource("RectangleShape2D_1nsf4")
 [node name="hour" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="plant_storage" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="plant_storage2" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 832.0
+offset_right = 768.0
+offset_bottom = 1024.0
+plant_key = "Spato"
+
+[node name="plant_storage3" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 832.0
+offset_right = 896.0
+offset_bottom = 1024.0
+plant_key = "Thornato"
+
+[node name="plant_storage4" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 832.0
+offset_right = 1024.0
+offset_bottom = 1024.0
+
+[node name="plant_storage5" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 832.0
+offset_right = 1152.0
+offset_bottom = 1024.0
+
+[node name="plant_storage6" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 832.0
+offset_right = 1280.0
+offset_bottom = 1024.0
 
 [connection signal="body_entered" from="bed/Area2D" to="bed" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="bed/Area2D" to="bed" method="_on_area_2d_body_exited"]
