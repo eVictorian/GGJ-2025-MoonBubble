@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddtdm0qbuk8nb"]
+
+[ext_resource type="FontFile" uid="uid://bmqhcx5n4lqx6" path="res://Minecraft.ttf" id="1_05dqo"]
+
+[sub_resource type="Theme" id="Theme_tt11g"]
+default_font = ExtResource("1_05dqo")
+
+[node name="fertilize" type="Button"]
+self_modulate = Color(0.965242, 0, 0.344984, 1)
+offset_right = 64.0
+offset_bottom = 64.0
+theme = SubResource("Theme_tt11g")
+text = "Spato
+1/Hr"

@@ -1,8 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf1rpok5tcagy"]
+[gd_scene load_steps=14 format=3 uid="uid://bf1rpok5tcagy"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_sn0rp"]
 [ext_resource type="Script" path="res://player.gd" id="1_xujb3"]
 [ext_resource type="PackedScene" uid="uid://b5trrx21l6bmk" path="res://plant_pot.tscn" id="2_kgt76"]
+[ext_resource type="FontFile" uid="uid://bmqhcx5n4lqx6" path="res://Minecraft.ttf" id="2_lr6cg"]
 [ext_resource type="PackedScene" uid="uid://c83c8bblawp1h" path="res://place_holder_plant.tscn" id="3_30csq"]
+[ext_resource type="Script" path="res://bed.gd" id="4_6ki5i"]
+
+[sub_resource type="Theme" id="Theme_5klw2"]
+default_font = ExtResource("2_lr6cg")
+default_font_size = 100
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adkdj"]
 size = Vector2(1792, 48)
@@ -16,12 +23,33 @@ size = Vector2(128, 992)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5n10q"]
 size = Vector2(1248, 120)
 
+[sub_resource type="Theme" id="Theme_pjylw"]
+default_font = ExtResource("2_lr6cg")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nsf4"]
 size = Vector2(32, 160)
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" node_paths=PackedStringArray("timer")]
+script = ExtResource("1_sn0rp")
+timer = NodePath("hour")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="UI"]
+color = Color(0.388955, 0.596713, 0.998258, 0.666667)
+polygon = PackedVector2Array(0, 128, 640, 128, 512, 0, 0, 0)
+
+[node name="time" type="RichTextLabel" parent="UI"]
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 320.0
+offset_bottom = 144.0
+theme = SubResource("Theme_5klw2")
+bbcode_enabled = true
+text = "[center]10:00"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(16, 0)
 color = Color(0.099986, 0.099986, 0.099986, 1)
 polygon = PackedVector2Array(-272, -176, -224, 768, 1152, 768, 2464, 768, 2448, -448, -256, -384)
@@ -118,12 +146,6 @@ polygon = PackedVector2Array(128, 448, 654.44, 448, 1152, 448, 1152, 481.888, 11
 position = Vector2(-64, 336)
 shape = SubResource("RectangleShape2D_fd3y6")
 
-[node name="plant_pot" parent="." instance=ExtResource("2_kgt76")]
-position = Vector2(320, 704)
-
-[node name="place_holder_plant" parent="plant_pot" instance=ExtResource("3_30csq")]
-show_behind_parent = true
-
 [node name="pots" type="Node2D" parent="."]
 
 [node name="plant_pot2" parent="pots" instance=ExtResource("2_kgt76")]
@@ -138,6 +160,42 @@ position = Vector2(1088, 704)
 [node name="plant_pot5" parent="pots" instance=ExtResource("2_kgt76")]
 position = Vector2(1344, 704)
 
+[node name="plant_pot" parent="pots" instance=ExtResource("2_kgt76")]
+position = Vector2(320, 704)
+
+[node name="place_holder_plant" parent="pots/plant_pot" instance=ExtResource("3_30csq")]
+show_behind_parent = true
+
+[node name="bed" type="Node2D" parent="."]
+position = Vector2(544, 992)
+script = ExtResource("4_6ki5i")
+
+[node name="Polygon2D" type="Polygon2D" parent="bed"]
+polygon = PackedVector2Array(-96, 0, 64, 0, 64, -16, 96, -16, 96, 64, -96, 64)
+
+[node name="Area2D" type="Area2D" parent="bed"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bed/Area2D"]
+polygon = PackedVector2Array(-96, 0, 64, 0, 64, -16, 96, -16, 96, 64, -96, 64)
+
+[node name="sleep_prompt" type="Panel" parent="bed"]
+offset_left = -336.0
+offset_top = -160.0
+offset_right = 96.0
+offset_bottom = -80.0
+
+[node name="text" type="RichTextLabel" parent="bed/sleep_prompt"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 464.0
+offset_bottom = 80.0
+theme = SubResource("Theme_pjylw")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Press E To Sleep "
+scroll_active = false
+
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(448, 960)
 script = ExtResource("1_xujb3")
@@ -151,3 +209,11 @@ polygon = PackedVector2Array(-32, 112, -32, 80, -48, 80, -48, 32, -32, 16, -32, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_1nsf4")
+
+[node name="hour" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="bed/Area2D" to="bed" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="bed/Area2D" to="bed" method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="hour" to="." method="_on_hour_timeout"]

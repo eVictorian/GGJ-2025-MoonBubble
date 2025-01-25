@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5trrx21l6bmk"]
+[gd_scene load_steps=9 format=3 uid="uid://b5trrx21l6bmk"]
+
+[ext_resource type="Script" path="res://plant_pot.gd" id="1_52r62"]
+[ext_resource type="FontFile" uid="uid://bmqhcx5n4lqx6" path="res://Minecraft.ttf" id="2_gkusu"]
+[ext_resource type="PackedScene" uid="uid://bws626wxx05gc" path="res://seeding_panel.tscn" id="3_1hfgh"]
+[ext_resource type="PackedScene" uid="uid://c83c8bblawp1h" path="res://place_holder_plant.tscn" id="4_antf4"]
+[ext_resource type="PackedScene" uid="uid://ddtdm0qbuk8nb" path="res://fertilize.tscn" id="5_sslba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bia2"]
 size = Vector2(128, 128)
 
+[sub_resource type="Theme" id="Theme_wowl2"]
+default_font = ExtResource("2_gkusu")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_y1n21"]
+default_font = ExtResource("2_gkusu")
+
 [node name="plant_pot" type="Node2D"]
+script = ExtResource("1_52r62")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-64, 0)
@@ -16,3 +30,123 @@ shape = SubResource("RectangleShape2D_6bia2")
 position = Vector2(-64, 0)
 color = Color(0.38811, 0.14373, 0.0352401, 1)
 polygon = PackedVector2Array(0, -64, 128, -64, 128, 64, 0, 64, 0, 0)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 64.0
+offset_top = -256.0
+offset_right = 408.0
+offset_bottom = -64.0
+
+[node name="time_left" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 24.0
+offset_right = 328.0
+offset_bottom = 64.0
+theme = SubResource("Theme_wowl2")
+bbcode_enabled = true
+text = "3Ds"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="water_time" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 88.0
+offset_right = 328.0
+offset_bottom = 128.0
+theme = SubResource("Theme_wowl2")
+bbcode_enabled = true
+text = "2Hs"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="Panel"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(8, 8, 8, 120, 120, 120, 120, 8)
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 120.0
+offset_bottom = 184.0
+theme = SubResource("Theme_y1n21")
+text = "Harvest"
+
+[node name="seeding_menu" type="Control" parent="Panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="seeding_panel" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
+layout_mode = 2
+offset_left = -272.0
+offset_top = -200.0
+offset_right = -16.0
+offset_bottom = -136.0
+plant_key = "Spato"
+plant_scene = ExtResource("4_antf4")
+
+[node name="seeding_panel2" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -136.0
+offset_right = -16.0
+offset_bottom = -72.0
+plant_key = "Spato"
+
+[node name="seeding_panel3" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -72.0
+offset_right = -16.0
+offset_bottom = -8.0
+plant_key = "Spato"
+
+[node name="seeding_panel4" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -8.0
+offset_right = -16.0
+offset_bottom = 56.0
+plant_key = "Spato"
+
+[node name="seeding_panel5" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = 56.0
+offset_right = -16.0
+offset_bottom = 120.0
+plant_key = "Spato"
+
+[node name="fertilize_menu" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fertilize" parent="Panel/fertilize_menu" instance=ExtResource("5_sslba")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 192.0
+offset_bottom = 192.0
+
+[node name="fertilize2" parent="Panel/fertilize_menu" instance=ExtResource("5_sslba")]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 128.0
+offset_right = 264.0
+offset_bottom = 192.0
+
+[node name="fertilize3" parent="Panel/fertilize_menu" instance=ExtResource("5_sslba")]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 128.0
+offset_right = 336.0
+offset_bottom = 192.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

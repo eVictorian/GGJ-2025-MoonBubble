@@ -5,7 +5,10 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_atjwm"]
 
 [node name="place_holder_plant" type="Node2D"]
+visibility_layer = 3
+z_index = -1
 script = ExtResource("1_m34j3")
+plant_key = "Spato"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_atjwm")
