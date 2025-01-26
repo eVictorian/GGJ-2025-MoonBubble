@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bf1rpok5tcagy"]
+[gd_scene load_steps=25 format=3 uid="uid://bf1rpok5tcagy"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_sn0rp"]
 [ext_resource type="Script" path="res://player.gd" id="1_xujb3"]
@@ -36,6 +36,10 @@ size = Vector2(352, 128)
 [sub_resource type="Theme" id="Theme_7qc6l"]
 default_font = ExtResource("2_lr6cg")
 default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_bdi2s"]
+default_font = ExtResource("2_lr6cg")
+default_font_size = 18
 
 [sub_resource type="Theme" id="Theme_md0ry"]
 default_font = ExtResource("2_lr6cg")
@@ -196,6 +200,7 @@ color = Color(0.38811, 0.14373, 0.0352401, 1)
 polygon = PackedVector2Array(-112, -64, 240, -64, 240, 0, 240, 64, -112, 64, -112, 0)
 
 [node name="Panel" type="Panel" parent="pots/tree"]
+visible = false
 offset_left = 64.0
 offset_top = -256.0
 offset_right = 512.0
@@ -203,9 +208,9 @@ offset_bottom = -64.0
 
 [node name="time_left" type="RichTextLabel" parent="pots/tree/Panel"]
 layout_mode = 0
-offset_left = 272.0
+offset_left = 288.0
 offset_top = 24.0
-offset_right = 432.0
+offset_right = 448.0
 offset_bottom = 64.0
 theme = SubResource("Theme_7qc6l")
 bbcode_enabled = true
@@ -215,9 +220,9 @@ autowrap_mode = 0
 
 [node name="water_time" type="RichTextLabel" parent="pots/tree/Panel"]
 layout_mode = 0
-offset_left = 272.0
+offset_left = 288.0
 offset_top = 88.0
-offset_right = 328.0
+offset_right = 344.0
 offset_bottom = 128.0
 theme = SubResource("Theme_7qc6l")
 bbcode_enabled = true
@@ -225,9 +230,25 @@ text = "2Hs"
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Polygon2D" type="Polygon2D" parent="pots/tree/Panel"]
+[node name="Polygon2D2" type="Polygon2D" parent="pots/tree/Panel"]
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(16, 16, 16, 176, 64, 176, 112, 176, 112, 16)
+polygon = PackedVector2Array(8, 8, 8, 120, 120, 120, 120, 8)
+
+[node name="Panel" type="Panel" parent="pots/tree/Panel/Polygon2D2"]
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 120.0
+offset_bottom = 184.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="pots/tree/Panel/Polygon2D2/Panel"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 56.0
+theme = SubResource("Theme_bdi2s")
+bbcode_enabled = true
+text = "[center]Selling o2
+£1/H"
 
 [node name="seeding_menu" type="Control" parent="pots/tree/Panel"]
 visible = false
@@ -299,23 +320,29 @@ offset_left = 128.0
 offset_top = 120.0
 offset_right = 192.0
 offset_bottom = 184.0
+text = "Glowbery
+1/Hr"
 
 [node name="fertilize2" parent="pots/tree/Panel/fertilize_menu" instance=ExtResource("8_ecjym")]
-visible = false
+self_modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 200.0
+offset_left = 224.0
 offset_top = 120.0
-offset_right = 264.0
+offset_right = 288.0
 offset_bottom = 184.0
+text = "Weird Cactus
+1/Hr"
 index = 1
 
 [node name="fertilize3" parent="pots/tree/Panel/fertilize_menu" instance=ExtResource("8_ecjym")]
-visible = false
+self_modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 272.0
+offset_left = 344.0
 offset_top = 120.0
-offset_right = 336.0
+offset_right = 408.0
 offset_bottom = 184.0
+text = "Moonusvie
+1/Hr"
 index = 2
 
 [node name="tree" parent="pots/tree" instance=ExtResource("9_vcckg")]
@@ -386,7 +413,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="plant_storage2" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+[node name="Spato" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
 offset_left = 640.0
 offset_top = 832.0
@@ -394,34 +421,51 @@ offset_right = 768.0
 offset_bottom = 1024.0
 plant_key = "Spato"
 
-[node name="plant_storage3" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+[node name="Big Flower" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
 offset_left = 768.0
 offset_top = 832.0
 offset_right = 896.0
 offset_bottom = 1024.0
-plant_key = "Thornato"
+plant_key = "Big Flower"
 
-[node name="plant_storage4" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+[node name="Thornato" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
 offset_left = 896.0
 offset_top = 832.0
 offset_right = 1024.0
 offset_bottom = 1024.0
+plant_key = "Thornato"
 
-[node name="plant_storage5" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+[node name="Glowberry" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
 offset_left = 1024.0
 offset_top = 832.0
 offset_right = 1152.0
 offset_bottom = 1024.0
+plant_key = "Glowberry"
 
-[node name="plant_storage6" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+[node name="Weird Cactus" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
 offset_left = 1152.0
 offset_top = 832.0
 offset_right = 1280.0
 offset_bottom = 1024.0
+plant_key = "Weird Cactus"
+
+[node name="Mushroom" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+offset_left = 1280.0
+offset_top = 832.0
+offset_right = 1408.0
+offset_bottom = 1024.0
+plant_key = "Mushroom"
+
+[node name="Moonusvie" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+offset_left = 1408.0
+offset_top = 832.0
+offset_right = 1536.0
+offset_bottom = 1024.0
+plant_key = "Moonusvie"
 
 [connection signal="body_entered" from="pots/tree/Area2D" to="pots/tree" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="pots/tree/Area2D" to="pots/tree" method="_on_area_2d_body_exited"]
