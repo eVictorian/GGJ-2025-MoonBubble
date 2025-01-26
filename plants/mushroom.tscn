@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dijrb745uns25"]
+
+[ext_resource type="Script" path="res://plant.gd" id="1_lm01p"]
+[ext_resource type="Texture2D" uid="uid://rl3l7kp1dug6" path="res://Plant and Assets.png" id="2_v31o1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqaha"]
+atlas = ExtResource("2_v31o1")
+region = Rect2(0, 640, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aviul"]
+atlas = ExtResource("2_v31o1")
+region = Rect2(0, 480, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytyp1"]
+atlas = ExtResource("2_v31o1")
+region = Rect2(0, 320, 192, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eu5wm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqaha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aviul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytyp1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Mushroom" type="Node2D"]
+visibility_layer = 3
+z_index = -1
+position = Vector2(-7, -8)
+script = ExtResource("1_lm01p")
+plant_key = "Mushroom"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, -92)
+sprite_frames = SubResource("SpriteFrames_eu5wm")

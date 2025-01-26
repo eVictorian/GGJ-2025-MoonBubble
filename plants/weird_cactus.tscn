@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfvjx1lhukwyg"]
+
+[ext_resource type="Script" path="res://plant.gd" id="1_hiotu"]
+[ext_resource type="Texture2D" uid="uid://rl3l7kp1dug6" path="res://Plant and Assets.png" id="2_efj02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28de4"]
+atlas = ExtResource("2_efj02")
+region = Rect2(466, 640, 214, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8jxy"]
+atlas = ExtResource("2_efj02")
+region = Rect2(466, 480, 214, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yspea"]
+atlas = ExtResource("2_efj02")
+region = Rect2(466, 320, 214, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3xsl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28de4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8jxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yspea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Weird Cactus" type="Node2D"]
+visibility_layer = 3
+z_index = -1
+script = ExtResource("1_hiotu")
+plant_key = "Weird Cactus"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, -92)
+sprite_frames = SubResource("SpriteFrames_y3xsl")

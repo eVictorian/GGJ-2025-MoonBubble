@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bf1rpok5tcagy"]
+[gd_scene load_steps=53 format=3 uid="uid://bf1rpok5tcagy"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_sn0rp"]
 [ext_resource type="Script" path="res://player.gd" id="1_xujb3"]
@@ -6,32 +6,81 @@
 [ext_resource type="FontFile" uid="uid://bmqhcx5n4lqx6" path="res://Minecraft.ttf" id="2_lr6cg"]
 [ext_resource type="PackedScene" uid="uid://ceidf84666hkb" path="res://market.tscn" id="3_3jmmu"]
 [ext_resource type="Script" path="res://bed.gd" id="4_6ki5i"]
+[ext_resource type="Texture2D" uid="uid://cbr2m8i6cn6du" path="res://Map.png" id="4_n67s0"]
 [ext_resource type="Script" path="res://plant_pot.gd" id="4_t3fhw"]
 [ext_resource type="PackedScene" uid="uid://bws626wxx05gc" path="res://seeding_panel.tscn" id="5_3vuxk"]
 [ext_resource type="PackedScene" uid="uid://d0eyrwd706yg0" path="res://plant_storage.tscn" id="6_5lnq4"]
+[ext_resource type="Texture2D" uid="uid://cjsfon4ad7alt" path="res://Tree Spacegame.png" id="6_obvce"]
 [ext_resource type="PackedScene" uid="uid://c83c8bblawp1h" path="res://place_holder_plant.tscn" id="6_ypsew"]
 [ext_resource type="PackedScene" uid="uid://bk30u0hpp4m4p" path="res://thornato.tscn" id="7_ym2s5"]
 [ext_resource type="PackedScene" uid="uid://ddtdm0qbuk8nb" path="res://fertilize.tscn" id="8_ecjym"]
 [ext_resource type="PackedScene" uid="uid://cdv5f20gbt1sc" path="res://tree.tscn" id="9_vcckg"]
+[ext_resource type="Texture2D" uid="uid://qnm6wmde3tsl" path="res://Space Goober run and idle.png" id="14_clac5"]
+[ext_resource type="Texture2D" uid="uid://rl3l7kp1dug6" path="res://Plant and Assets.png" id="24_7wcn5"]
+[ext_resource type="AudioStream" uid="uid://c5g8qgbik05h5" path="res://night-prowler-21321.mp3" id="24_jttm1"]
 
 [sub_resource type="Theme" id="Theme_5klw2"]
 default_font = ExtResource("2_lr6cg")
 default_font_size = 100
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adkdj"]
-size = Vector2(1792, 48)
+size = Vector2(1794, 103.81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11iwq"]
 size = Vector2(1919, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd3y6"]
-size = Vector2(128, 992)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n10q"]
-size = Vector2(1248, 120)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfjni"]
-size = Vector2(352, 128)
+size = Vector2(345, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k6eu"]
+atlas = ExtResource("6_obvce")
+region = Rect2(0, 0, 576, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e7wv"]
+atlas = ExtResource("6_obvce")
+region = Rect2(576, 0, 576, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61ba5"]
+atlas = ExtResource("6_obvce")
+region = Rect2(1152, 0, 576, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7qrg"]
+atlas = ExtResource("6_obvce")
+region = Rect2(1728, 0, 576, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vp6m"]
+atlas = ExtResource("6_obvce")
+region = Rect2(2304, 0, 576, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic5wy"]
+atlas = ExtResource("6_obvce")
+region = Rect2(2880, 0, 576, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qs5rt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k6eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e7wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61ba5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7qrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vp6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic5wy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
 
 [sub_resource type="Theme" id="Theme_7qc6l"]
 default_font = ExtResource("2_lr6cg")
@@ -41,14 +90,118 @@ default_font_size = 32
 default_font = ExtResource("2_lr6cg")
 default_font_size = 18
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5t7l"]
+atlas = ExtResource("6_obvce")
+region = Rect2(272, 597, 110, 110)
+
 [sub_resource type="Theme" id="Theme_md0ry"]
+default_font = ExtResource("2_lr6cg")
+
+[sub_resource type="Theme" id="Theme_xtqh4"]
 default_font = ExtResource("2_lr6cg")
 
 [sub_resource type="Theme" id="Theme_pjylw"]
 default_font = ExtResource("2_lr6cg")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp5y2"]
+atlas = ExtResource("14_clac5")
+region = Rect2(0, 0, 110, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bd0h"]
+atlas = ExtResource("14_clac5")
+region = Rect2(110, 0, 110, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi5mb"]
+atlas = ExtResource("14_clac5")
+region = Rect2(220, 0, 110, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1j37"]
+atlas = ExtResource("14_clac5")
+region = Rect2(330, 0, 110, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e5vg"]
+atlas = ExtResource("14_clac5")
+region = Rect2(0, 155, 110, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbcwi"]
+atlas = ExtResource("14_clac5")
+region = Rect2(110, 155, 110, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udlah"]
+atlas = ExtResource("14_clac5")
+region = Rect2(220, 155, 110, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svmfx"]
+atlas = ExtResource("14_clac5")
+region = Rect2(330, 155, 110, 155)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksk3b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp5y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bd0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi5mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1j37")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e5vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbcwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udlah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svmfx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nsf4"]
-size = Vector2(32, 160)
+size = Vector2(59, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd175"]
+atlas = ExtResource("24_7wcn5")
+region = Rect2(200, 384, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8f5b"]
+atlas = ExtResource("24_7wcn5")
+region = Rect2(800, 320, 184, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmfqv"]
+atlas = ExtResource("24_7wcn5")
+region = Rect2(1152, 328, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3bxa"]
+atlas = ExtResource("24_7wcn5")
+region = Rect2(781, 6, 226, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pl7y"]
+atlas = ExtResource("24_7wcn5")
+region = Rect2(471, 337, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acin1"]
+atlas = ExtResource("24_7wcn5")
+region = Rect2(0, 342, 180, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdg28"]
+atlas = ExtResource("24_7wcn5")
+region = Rect2(486, 26, 176, 138)
 
 [node name="main" type="Node2D" node_paths=PackedStringArray("timer")]
 script = ExtResource("1_sn0rp")
@@ -70,7 +223,7 @@ bbcode_enabled = true
 text = "[center]10:00"
 
 [node name="market" parent="UI" instance=ExtResource("3_3jmmu")]
-position = Vector2(1488, 704)
+position = Vector2(1714, 655)
 
 [node name="money" type="RichTextLabel" parent="UI"]
 offset_left = 320.0
@@ -82,12 +235,6 @@ bbcode_enabled = true
 text = "£0"
 text_direction = 2
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
-position = Vector2(16, 0)
-color = Color(0.099986, 0.099986, 0.099986, 1)
-polygon = PackedVector2Array(-272, -176, -224, 768, 1152, 768, 2464, 768, 2448, -448, -256, -384)
-
 [node name="base" type="Node2D" parent="."]
 
 [node name="collision_structure" type="Node2D" parent="base"]
@@ -95,90 +242,29 @@ top_level = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="base/collision_structure"]
 
-[node name="Polygon2D2" type="Polygon2D" parent="base/collision_structure/StaticBody2D"]
-position = Vector2(-95.7656, 432)
-scale = Vector2(1.74817, 0.75)
-polygon = PackedVector2Array(128, 448, 1152, 448, 1152, 484.936, 1152, 512, 128, 512, 128, 482.449)
-
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="base/collision_structure/StaticBody2D"]
-position = Vector2(1024, 792)
+position = Vector2(1023, 779.905)
 shape = SubResource("RectangleShape2D_adkdj")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="base/collision_structure"]
 position = Vector2(960, 1088)
 
-[node name="Polygon2D" type="Polygon2D" parent="base/collision_structure/StaticBody2D2"]
-position = Vector2(-1200, -703.996)
-scale = Vector2(1.875, 1.49999)
-polygon = PackedVector2Array(128, 448, 643.154, 448, 1152, 448, 1152, 481.888, 1152, 512, 639.933, 512, 128, 512)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="base/collision_structure/StaticBody2D2"]
-position = Vector2(0, 16)
+position = Vector2(5, -15)
 shape = SubResource("RectangleShape2D_11iwq")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="base/collision_structure"]
 position = Vector2(32, 0)
 scale = Vector2(1, 2)
 
-[node name="Polygon2D" type="Polygon2D" parent="base/collision_structure/StaticBody2D3"]
-position = Vector2(-144, -6143.99)
-scale = Vector2(0.125, 13.5)
-polygon = PackedVector2Array(128, 448, 654.44, 448, 1152, 448, 1152, 481.888, 1152, 512, 639.933, 512, 128, 512)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="base/collision_structure/StaticBody2D3"]
+polygon = PackedVector2Array(-24, 296, 24, 228, 168, 152, 424, 88, 704, 56, 968, 56, 1248, 80, 1464, 124, 1648, 188, 1752, 272, 1752, 380, 1896, 380, 1880, -4, -64, 4, -80, 304, -88, 544, -8, 512, -8, 296, -8, 276)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="base/collision_structure/StaticBody2D3"]
-position = Vector2(-64, 338.5)
-shape = SubResource("RectangleShape2D_fd3y6")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="base/collision_structure"]
-position = Vector2(960, -64)
-
-[node name="Polygon2D" type="Polygon2D" parent="base/collision_structure/StaticBody2D4"]
-visible = false
-position = Vector2(-1200, -960)
-scale = Vector2(1.875, 2)
-polygon = PackedVector2Array(128, 448, 1152, 448, 1152, 481.888, 1152, 512, 639.933, 512, 128, 512)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="base/collision_structure/StaticBody2D4"]
-shape = SubResource("RectangleShape2D_11iwq")
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="base/collision_structure"]
-position = Vector2(1664, -1024)
-scale = Vector2(1, 2)
-
-[node name="Polygon2D" type="Polygon2D" parent="base/collision_structure/StaticBody2D5"]
-position = Vector2(-144, -6143.99)
-scale = Vector2(0.125, 13.5)
-polygon = PackedVector2Array(128, 448, 654.44, 448, 1152, 448, 1152, 481.888, 1152, 512, 639.933, 512, 128, 512)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="base/collision_structure/StaticBody2D5"]
-position = Vector2(-64, 400)
-shape = SubResource("RectangleShape2D_fd3y6")
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="base/collision_structure"]
-position = Vector2(1280, 928)
-scale = Vector2(1, 2)
-
-[node name="Polygon2D" type="Polygon2D" parent="base/collision_structure/StaticBody2D6"]
-position = Vector2(-796, -896)
-scale = Vector2(1.21875, 1.87501)
-polygon = PackedVector2Array(128, 448, 654.44, 448, 1152, 448, 1152, 481.888, 1152, 512, 684.61, 512, 639.933, 512, 128, 512, 128, 481.225)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="base/collision_structure/StaticBody2D6"]
-position = Vector2(-16, 4)
-shape = SubResource("RectangleShape2D_5n10q")
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="base/collision_structure"]
-position = Vector2(2032, -768)
-scale = Vector2(1, 2)
-
-[node name="Polygon2D" type="Polygon2D" parent="base/collision_structure/StaticBody2D7"]
-position = Vector2(-144, -6143.99)
-scale = Vector2(0.125, 13.5)
-polygon = PackedVector2Array(128, 448, 654.44, 448, 1152, 448, 1152, 481.888, 1152, 512, 639.933, 512, 128, 512)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="base/collision_structure/StaticBody2D7"]
-position = Vector2(-64, 336)
-shape = SubResource("RectangleShape2D_fd3y6")
+[node name="Map" type="Sprite2D" parent="base"]
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_n67s0")
 
 [node name="pots" type="Node2D" parent="."]
 
@@ -191,13 +277,14 @@ tree = true
 position = Vector2(-64, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pots/tree/Area2D"]
-position = Vector2(64, 0)
+position = Vector2(101.5, -25)
 shape = SubResource("RectangleShape2D_mfjni")
 
-[node name="Polygon2D" type="Polygon2D" parent="pots/tree"]
-position = Vector2(-64, 0)
-color = Color(0.38811, 0.14373, 0.0352401, 1)
-polygon = PackedVector2Array(-112, -64, 240, -64, 240, 0, 240, 64, -112, 64, -112, 0)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pots/tree"]
+z_index = 1
+position = Vector2(2, -271)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_qs5rt")
 
 [node name="Panel" type="Panel" parent="pots/tree"]
 visible = false
@@ -249,6 +336,10 @@ theme = SubResource("Theme_bdi2s")
 bbcode_enabled = true
 text = "[center]Selling o2
 £1/H"
+
+[node name="Sprite2D" type="Sprite2D" parent="pots/tree/Panel/Polygon2D2"]
+position = Vector2(57, 56)
+texture = SubResource("AtlasTexture_m5t7l")
 
 [node name="seeding_menu" type="Control" parent="pots/tree/Panel"]
 visible = false
@@ -345,33 +436,81 @@ text = "Moonusvie
 1/Hr"
 index = 2
 
+[node name="placeholder2" type="RichTextLabel" parent="pots/tree/Panel"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 85.3334
+offset_right = 278.0
+offset_bottom = 134.333
+theme = SubResource("Theme_xtqh4")
+bbcode_enabled = true
+text = "Water remaining:
+(hold E to water)
+"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="placeholder3" type="RichTextLabel" parent="pots/tree/Panel"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 32.0
+offset_right = 278.0
+offset_bottom = 81.0
+theme = SubResource("Theme_xtqh4")
+bbcode_enabled = true
+text = "Grown in:
+"
+scroll_active = false
+autowrap_mode = 0
+
 [node name="tree" parent="pots/tree" instance=ExtResource("9_vcckg")]
 
 [node name="plant_pot" parent="pots" instance=ExtResource("2_kgt76")]
-position = Vector2(320, 704)
+position = Vector2(176, 702)
 
 [node name="plant_pot2" parent="pots" instance=ExtResource("2_kgt76")]
-position = Vector2(576, 704)
+position = Vector2(281, 702)
 
 [node name="plant_pot4" parent="pots" instance=ExtResource("2_kgt76")]
-position = Vector2(1088, 704)
+position = Vector2(387, 702)
 
 [node name="plant_pot5" parent="pots" instance=ExtResource("2_kgt76")]
-position = Vector2(1344, 704)
+position = Vector2(491, 702)
+
+[node name="plant_pot6" parent="pots" instance=ExtResource("2_kgt76")]
+position = Vector2(596, 702)
+
+[node name="plant_pot3" parent="pots" instance=ExtResource("2_kgt76")]
+position = Vector2(1121, 702)
+
+[node name="plant_pot7" parent="pots" instance=ExtResource("2_kgt76")]
+position = Vector2(1226, 702)
+
+[node name="plant_pot8" parent="pots" instance=ExtResource("2_kgt76")]
+position = Vector2(1332, 702)
+
+[node name="plant_pot9" parent="pots" instance=ExtResource("2_kgt76")]
+position = Vector2(1436, 702)
+
+[node name="plant_pot10" parent="pots" instance=ExtResource("2_kgt76")]
+position = Vector2(1541, 702)
 
 [node name="bed" type="Node2D" parent="."]
 position = Vector2(544, 992)
 script = ExtResource("4_6ki5i")
 
 [node name="Polygon2D" type="Polygon2D" parent="bed"]
+visible = false
 polygon = PackedVector2Array(-96, 0, 64, 0, 64, -16, 96, -16, 96, 64, -96, 64)
 
 [node name="Area2D" type="Area2D" parent="bed"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bed/Area2D"]
-polygon = PackedVector2Array(-96, 0, 64, 0, 64, -16, 96, -16, 96, 64, -96, 64)
+position = Vector2(1, -47)
+polygon = PackedVector2Array(-113, 0, 64, 0, 64, -54, 96, -54, 96, 79, -113, 79)
 
 [node name="sleep_prompt" type="Panel" parent="bed"]
+visible = false
 offset_left = -336.0
 offset_top = -160.0
 offset_right = 96.0
@@ -390,28 +529,32 @@ text = "[center]Press E To Sleep "
 scroll_active = false
 
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(448, 960)
+z_index = 6
+position = Vector2(159, 971)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_xujb3")
 
-[node name="Polygon2D" type="Polygon2D" parent="player"]
-position = Vector2(0, 16)
-color = Color(0.702469, 0.751485, 0.958898, 1)
-offset = Vector2(16, -32)
-polygon = PackedVector2Array(-32, 112, -32, 80, -48, 80, -48, 32, -32, 16, -32, 0, -48, 0, -48, -32, -32, -48, 0, -48, 0, -48, 0, -16, 0, 0, 0, 16, 16, 16, 16, 80, 0, 80, 0, 112)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+sprite_frames = SubResource("SpriteFrames_ksk3b")
+animation = &"idle"
+frame = 3
+frame_progress = 0.217221
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(0, 16)
+position = Vector2(4.5, 6)
 shape = SubResource("RectangleShape2D_1nsf4")
 
 [node name="hour" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 20.0
 one_shot = true
 
 [node name="plant_storage" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 21.0
+offset_top = -4.0
+offset_right = 61.0
+offset_bottom = 36.0
 
 [node name="Spato" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
@@ -421,6 +564,11 @@ offset_right = 768.0
 offset_bottom = 1024.0
 plant_key = "Spato"
 
+[node name="Sprite2D" type="Sprite2D" parent="plant_storage/Spato"]
+position = Vector2(68, 140)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_dd175")
+
 [node name="Big Flower" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
 offset_left = 768.0
@@ -428,6 +576,11 @@ offset_top = 832.0
 offset_right = 896.0
 offset_bottom = 1024.0
 plant_key = "Big Flower"
+
+[node name="Sprite2D" type="Sprite2D" parent="plant_storage/Big Flower"]
+position = Vector2(68, 124)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_o8f5b")
 
 [node name="Thornato" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
@@ -437,6 +590,11 @@ offset_right = 1024.0
 offset_bottom = 1024.0
 plant_key = "Thornato"
 
+[node name="Sprite2D" type="Sprite2D" parent="plant_storage/Thornato"]
+position = Vector2(68, 124)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_jmfqv")
+
 [node name="Glowberry" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
 offset_left = 1024.0
@@ -444,6 +602,11 @@ offset_top = 832.0
 offset_right = 1152.0
 offset_bottom = 1024.0
 plant_key = "Glowberry"
+
+[node name="Sprite2D" type="Sprite2D" parent="plant_storage/Glowberry"]
+position = Vector2(68, 124)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_y3bxa")
 
 [node name="Weird Cactus" parent="plant_storage" instance=ExtResource("6_5lnq4")]
 layout_mode = 0
@@ -453,19 +616,41 @@ offset_right = 1280.0
 offset_bottom = 1024.0
 plant_key = "Weird Cactus"
 
+[node name="Sprite2D" type="Sprite2D" parent="plant_storage/Weird Cactus"]
+position = Vector2(60, 128)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_3pl7y")
+
 [node name="Mushroom" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+layout_mode = 0
 offset_left = 1280.0
 offset_top = 832.0
 offset_right = 1408.0
 offset_bottom = 1024.0
 plant_key = "Mushroom"
 
+[node name="Sprite2D" type="Sprite2D" parent="plant_storage/Mushroom"]
+position = Vector2(60, 128)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_acin1")
+
 [node name="Moonusvie" parent="plant_storage" instance=ExtResource("6_5lnq4")]
+layout_mode = 0
 offset_left = 1408.0
 offset_top = 832.0
 offset_right = 1536.0
 offset_bottom = 1024.0
 plant_key = "Moonusvie"
+
+[node name="Sprite2D" type="Sprite2D" parent="plant_storage/Moonusvie"]
+position = Vector2(60, 128)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_gdg28")
+
+[node name="music player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_jttm1")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="pots/tree/Area2D" to="pots/tree" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="pots/tree/Area2D" to="pots/tree" method="_on_area_2d_body_exited"]

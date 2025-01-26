@@ -21,6 +21,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		$market_popup.visible = false
 		$Background.visible = false
-		launch_rocket()
+		if send_rocket:
+			launch_rocket()
 func launch_rocket():
-	pass
+	$AnimatedSprite2D.play("default")

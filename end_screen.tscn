@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dotlfvdx75f83"]
+
+[ext_resource type="Texture2D" uid="uid://cp28m5u1w3u3c" path="res://End_Screen.webp" id="1_qhgcb"]
+
+[node name="EndScreen" type="Sprite2D"]
+position = Vector2(952, 537)
+scale = Vector2(1.82693, 1.8348)
+texture = ExtResource("1_qhgcb")

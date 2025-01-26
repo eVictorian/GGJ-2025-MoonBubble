@@ -5,33 +5,37 @@
 
 [sub_resource type="Theme" id="Theme_jeorv"]
 default_font = ExtResource("1_lxdp2")
-default_font_size = 33
+default_font_size = 25
 
 [node name="seeding_panel" type="Button"]
+z_index = 12
 offset_left = -256.0
 offset_top = -64.0
+offset_right = 64.0
 script = ExtResource("1_80o01")
 
 [node name="title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 120.0
+offset_left = 64.0
 offset_top = 16.0
-offset_right = 256.0
+offset_right = 184.0
 offset_bottom = 64.0
+mouse_filter = 2
 theme = SubResource("Theme_jeorv")
 bbcode_enabled = true
-text = "[center]Spato"
+text = "Spato"
 scroll_active = false
 
 [node name="qty" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 8.0
 offset_top = 16.0
-offset_right = 128.0
+offset_right = 56.0
 offset_bottom = 64.0
+mouse_filter = 2
 theme = SubResource("Theme_jeorv")
 bbcode_enabled = true
-text = "[center]3"
+text = "3"
 scroll_active = false
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

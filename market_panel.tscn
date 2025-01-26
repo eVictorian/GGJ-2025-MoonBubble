@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqy53jroecj1"]
+[gd_scene load_steps=6 format=3 uid="uid://cqy53jroecj1"]
 
 [ext_resource type="Script" path="res://market_panel.gd" id="1_1laa5"]
 [ext_resource type="FontFile" uid="uid://bmqhcx5n4lqx6" path="res://Minecraft.ttf" id="2_kxjgf"]
-[ext_resource type="Texture2D" uid="uid://bdbqyfx1n6d0u" path="res://icon.svg" id="3_6tpnu"]
 
 [sub_resource type="Theme" id="Theme_4adxx"]
 default_font = ExtResource("2_kxjgf")
@@ -14,7 +13,7 @@ default_font_size = 25
 
 [sub_resource type="Theme" id="Theme_443ig"]
 default_font = ExtResource("2_kxjgf")
-default_font_size = 25
+default_font_size = 20
 
 [node name="market_panel" type="Control"]
 z_index = 10
@@ -27,7 +26,7 @@ script = ExtResource("1_1laa5")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.388235, 0.596078, 1, 0.666667)
-polygon = PackedVector2Array(-64, 0, 128, 0, 128, 128, -64, 128)
+polygon = PackedVector2Array(-64, 0, 136, 0, 136, 64, 136, 128, -64, 128)
 
 [node name="buy" type="Button" parent="."]
 self_modulate = Color(0, 1, 0, 1)
@@ -43,23 +42,19 @@ text = "Buy 10
 [node name="sell" type="Button" parent="."]
 self_modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 40.0
+offset_left = 48.0
 offset_top = 64.0
-offset_right = 128.0
+offset_right = 136.0
 offset_bottom = 128.0
 theme = SubResource("Theme_3h22i")
 text = "sell 10
 £10"
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-32, 32)
-scale = Vector2(0.484375, 0.5)
-texture = ExtResource("3_6tpnu")
-
 [node name="name" type="RichTextLabel" parent="."]
 layout_mode = 0
+offset_left = 32.0
 offset_top = 16.0
-offset_right = 128.0
+offset_right = 136.0
 offset_bottom = 64.0
 theme = SubResource("Theme_443ig")
 bbcode_enabled = true

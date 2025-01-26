@@ -17,14 +17,16 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	$sleep_prompt.visible = true
-	atBed = true
-	if get_parent().time_of_day >= get_parent().dayLength:
-		$sleep_prompt/text.text = "[center]Press E To Sleep "
-	else:
-		$sleep_prompt/text.text = "[center]Sleep At 22:00"
+	if body.name == "player":
+		$sleep_prompt.visible = true
+		atBed = true
+		if get_parent().time_of_day >= get_parent().dayLength:
+			$sleep_prompt/text.text = "[center]Press E To Sleep "
+		else:
+			$sleep_prompt/text.text = "[center]Sleep At 22:00"
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	$sleep_prompt.visible = false
-	atBed = false
+	if body.name == "player":
+		$sleep_prompt.visible = false
+		atBed = false

@@ -8,7 +8,7 @@ default_font = ExtResource("1_05dqo")
 
 [node name="fertilize" type="Button"]
 self_modulate = Color(0.965242, 0, 0.344984, 1)
-offset_right = 64.0
+offset_right = 104.0
 offset_bottom = 64.0
 theme = SubResource("Theme_tt11g")
 text = "Spato

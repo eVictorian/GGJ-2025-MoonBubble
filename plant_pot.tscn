@@ -1,42 +1,89 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5trrx21l6bmk"]
+[gd_scene load_steps=25 format=3 uid="uid://b5trrx21l6bmk"]
 
 [ext_resource type="Script" path="res://plant_pot.gd" id="1_52r62"]
+[ext_resource type="Texture2D" uid="uid://rl3l7kp1dug6" path="res://Plant and Assets.png" id="2_2hl10"]
 [ext_resource type="FontFile" uid="uid://bmqhcx5n4lqx6" path="res://Minecraft.ttf" id="2_gkusu"]
 [ext_resource type="PackedScene" uid="uid://bws626wxx05gc" path="res://seeding_panel.tscn" id="3_1hfgh"]
-[ext_resource type="PackedScene" uid="uid://c83c8bblawp1h" path="res://place_holder_plant.tscn" id="4_antf4"]
-[ext_resource type="PackedScene" uid="uid://bk30u0hpp4m4p" path="res://thornato.tscn" id="5_7v8ob"]
+[ext_resource type="PackedScene" uid="uid://0iblwryo84ie" path="res://plants/spato.tscn" id="5_1ghfo"]
 [ext_resource type="PackedScene" uid="uid://ddtdm0qbuk8nb" path="res://fertilize.tscn" id="5_sslba"]
+[ext_resource type="PackedScene" uid="uid://cd1yavaftke1w" path="res://plants/big_flower.tscn" id="6_s4ki4"]
+[ext_resource type="PackedScene" uid="uid://cvtrqh1ct01wc" path="res://plants/thornato.tscn" id="7_vxl0n"]
+[ext_resource type="PackedScene" uid="uid://efir80qyv73p" path="res://plants/glowberry.tscn" id="8_lxe8u"]
+[ext_resource type="PackedScene" uid="uid://dijrb745uns25" path="res://plants/mushroom.tscn" id="9_nams6"]
+[ext_resource type="PackedScene" uid="uid://dj54scn0kiwpp" path="res://plants/moonusvie.tscn" id="10_46cuv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bia2"]
-size = Vector2(128, 128)
+size = Vector2(97.1852, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6qm2"]
+atlas = ExtResource("2_2hl10")
+region = Rect2(0, 96, 192, 64)
 
 [sub_resource type="Theme" id="Theme_wowl2"]
 default_font = ExtResource("2_gkusu")
 default_font_size = 32
 
+[sub_resource type="Theme" id="Theme_ssi6t"]
+default_font = ExtResource("2_gkusu")
+
+[sub_resource type="Theme" id="Theme_s1sjj"]
+default_font = ExtResource("2_gkusu")
+default_font_size = 25
+
 [sub_resource type="Theme" id="Theme_y1n21"]
 default_font = ExtResource("2_gkusu")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_du40p"]
+atlas = ExtResource("2_2hl10")
+region = Rect2(200, 384, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jou1n"]
+atlas = ExtResource("2_2hl10")
+region = Rect2(800, 320, 184, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j8ye"]
+atlas = ExtResource("2_2hl10")
+region = Rect2(1152, 328, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16cj2"]
+atlas = ExtResource("2_2hl10")
+region = Rect2(781, 6, 226, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2015e"]
+atlas = ExtResource("2_2hl10")
+region = Rect2(471, 337, 200, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3u30"]
+atlas = ExtResource("2_2hl10")
+region = Rect2(0, 342, 180, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce4q4"]
+atlas = ExtResource("2_2hl10")
+region = Rect2(486, 26, 176, 138)
+
 [node name="plant_pot" type="Node2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_52r62")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-64, 0)
+scale = Vector2(0.75, 0.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(64, 0)
+position = Vector2(84.4445, -10)
+scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_6bia2")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-64, 0)
-color = Color(0.38811, 0.14373, 0.0352401, 1)
-polygon = PackedVector2Array(0, -64, 128, -64, 128, 64, 0, 64, 0, 0)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = SubResource("AtlasTexture_t6qm2")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
+z_index = 10
 offset_left = 64.0
 offset_top = -256.0
-offset_right = 408.0
+offset_right = 455.0
 offset_bottom = -64.0
 
 [node name="time_left" type="RichTextLabel" parent="Panel"]
@@ -51,36 +98,77 @@ text = "3Ds"
 scroll_active = false
 autowrap_mode = 0
 
+[node name="placeholder2" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 126.667
+offset_top = 74.6667
+offset_right = 267.667
+offset_bottom = 123.667
+theme = SubResource("Theme_ssi6t")
+bbcode_enabled = true
+text = "Water remaining:
+(hold E to water)
+"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="placeholder3" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 126.667
+offset_top = 33.3333
+offset_right = 267.667
+offset_bottom = 82.3333
+theme = SubResource("Theme_ssi6t")
+bbcode_enabled = true
+text = "Havetst in:
+"
+scroll_active = false
+autowrap_mode = 0
+
 [node name="water_time" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 88.0
-offset_right = 328.0
-offset_bottom = 128.0
+offset_left = 269.333
+offset_top = 80.0
+offset_right = 325.333
+offset_bottom = 120.0
 theme = SubResource("Theme_wowl2")
 bbcode_enabled = true
 text = "2Hs"
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Polygon2D" type="Polygon2D" parent="Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 123.0
+offset_bottom = 107.0
+theme = SubResource("Theme_s1sjj")
+bbcode_enabled = true
+text = "
+[center]Weird Cactus"
+
+[node name="Polygon2D" type="Polygon2D" parent="Panel/RichTextLabel"]
+show_behind_parent = true
+position = Vector2(0, -11)
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(8, 8, 8, 120, 120, 120, 120, 8)
+polygon = PackedVector2Array(10.6667, -0.333344, 10.6667, 106.333, 106.667, 106.333, 106.667, -0.333344)
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 136.0
-offset_right = 120.0
-offset_bottom = 184.0
+offset_left = 11.0
+offset_top = 128.0
+offset_right = 107.0
+offset_bottom = 176.0
 theme = SubResource("Theme_y1n21")
 text = "Harvest"
 
 [node name="seeding_menu" type="Control" parent="Panel"]
 visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 14.6667
+offset_top = -106.667
+offset_right = 54.6667
+offset_bottom = -66.6667
 
 [node name="seeding_panel" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
 layout_mode = 2
@@ -89,7 +177,12 @@ offset_top = -200.0
 offset_right = -16.0
 offset_bottom = -136.0
 plant_key = "Spato"
-plant_scene = ExtResource("4_antf4")
+plant_scene = ExtResource("5_1ghfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/seeding_menu/seeding_panel"]
+position = Vector2(206.667, 32)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_du40p")
 
 [node name="seeding_panel2" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
 layout_mode = 0
@@ -97,8 +190,13 @@ offset_left = -272.0
 offset_top = -136.0
 offset_right = -16.0
 offset_bottom = -72.0
-plant_key = "Thornato"
-plant_scene = ExtResource("5_7v8ob")
+plant_key = "Big Flower"
+plant_scene = ExtResource("6_s4ki4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/seeding_menu/seeding_panel2"]
+position = Vector2(208, 29.3333)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_jou1n")
 
 [node name="seeding_panel3" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
 layout_mode = 0
@@ -106,7 +204,14 @@ offset_left = -272.0
 offset_top = -72.0
 offset_right = -16.0
 offset_bottom = -8.0
-plant_key = "Spato"
+plant_key = "Thornato"
+plant_scene = ExtResource("7_vxl0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/seeding_menu/seeding_panel3"]
+z_index = 1
+position = Vector2(210.667, 30.6667)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_0j8ye")
 
 [node name="seeding_panel4" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
 layout_mode = 0
@@ -114,7 +219,14 @@ offset_left = -272.0
 offset_top = -8.0
 offset_right = -16.0
 offset_bottom = 56.0
-plant_key = "Spato"
+plant_key = "Glowberry"
+plant_scene = ExtResource("8_lxe8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/seeding_menu/seeding_panel4"]
+z_index = 1
+position = Vector2(216, 32)
+scale = Vector2(0.35, 0.35)
+texture = SubResource("AtlasTexture_16cj2")
 
 [node name="seeding_panel5" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
 layout_mode = 0
@@ -122,7 +234,42 @@ offset_left = -272.0
 offset_top = 56.0
 offset_right = -16.0
 offset_bottom = 120.0
-plant_key = "Spato"
+plant_key = "Weird Cactus"
+plant_scene = ExtResource("8_lxe8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/seeding_menu/seeding_panel5"]
+z_index = 1
+position = Vector2(204, 32)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_2015e")
+
+[node name="seeding_panel6" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = 120.0
+offset_right = -16.0
+offset_bottom = 184.0
+plant_key = "Mushroom"
+plant_scene = ExtResource("9_nams6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/seeding_menu/seeding_panel6"]
+position = Vector2(202.667, 30.6667)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_n3u30")
+
+[node name="seeding_panel7" parent="Panel/seeding_menu" instance=ExtResource("3_1hfgh")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = 184.0
+offset_right = -16.0
+offset_bottom = 248.0
+plant_key = "Moonusvie"
+plant_scene = ExtResource("10_46cuv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/seeding_menu/seeding_panel7"]
+position = Vector2(205.333, 30.6667)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_ce4q4")
 
 [node name="fertilize_menu" type="Control" parent="Panel"]
 anchors_preset = 0
@@ -133,26 +280,24 @@ offset_bottom = 40.0
 self_modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 128.0
-offset_top = 120.0
+offset_top = 117.333
 offset_right = 192.0
-offset_bottom = 184.0
+offset_bottom = 181.333
 
 [node name="fertilize2" parent="Panel/fertilize_menu" instance=ExtResource("5_sslba")]
-visible = false
 layout_mode = 0
-offset_left = 200.0
-offset_top = 120.0
-offset_right = 264.0
-offset_bottom = 184.0
+offset_left = 213.333
+offset_top = 117.333
+offset_right = 277.333
+offset_bottom = 181.333
 index = 1
 
 [node name="fertilize3" parent="Panel/fertilize_menu" instance=ExtResource("5_sslba")]
-visible = false
 layout_mode = 0
-offset_left = 272.0
-offset_top = 120.0
-offset_right = 336.0
-offset_bottom = 184.0
+offset_left = 298.667
+offset_top = 117.333
+offset_right = 362.667
+offset_bottom = 181.333
 index = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

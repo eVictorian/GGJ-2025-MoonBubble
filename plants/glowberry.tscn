@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://efir80qyv73p"]
+
+[ext_resource type="Script" path="res://plant.gd" id="1_72xf7"]
+[ext_resource type="Texture2D" uid="uid://rl3l7kp1dug6" path="res://Plant and Assets.png" id="2_t1jd5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur3si"]
+atlas = ExtResource("2_t1jd5")
+region = Rect2(1317, 0, 119, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h0xd"]
+atlas = ExtResource("2_t1jd5")
+region = Rect2(1152, 0, 143, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjhep"]
+atlas = ExtResource("2_t1jd5")
+region = Rect2(724, 0, 358, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1jnw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur3si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h0xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjhep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Glowberry" type="Node2D"]
+visibility_layer = 3
+z_index = -1
+position = Vector2(-3, 16)
+script = ExtResource("1_72xf7")
+plant_key = "Glowberry"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -92)
+sprite_frames = SubResource("SpriteFrames_j1jnw")

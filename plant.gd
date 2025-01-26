@@ -4,9 +4,12 @@ extends Node2D
 
 var hours_left = 10000000000
 
+var sprite 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hours_left = Global.plants[plant_key]["growth_time"]
+	sprite = $AnimatedSprite2D
 	pass # Replace with function body.
 
 
@@ -16,6 +19,8 @@ func _process(delta: float) -> void:
 	
 func time_passed(time_passed: int):
 	hours_left -= time_passed
+	if hours_left < 0:
+		hours_left = 0
 	
 func days_left() -> int:
 	return int(hours_left/24)

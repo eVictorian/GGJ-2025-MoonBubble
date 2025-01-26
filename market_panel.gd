@@ -10,9 +10,9 @@ var sell_price = 0
 func _ready() -> void:
 	$name.text = plant_key
 	buy_price = Global.plant_products[plant_key]["buy_price"]
-	$buy.text = "Buy 10\n£"+str(buy_price)
+	$buy.text = "Buy 10\n£"+str(buy_price*10)
 	sell_price = Global.plant_products[plant_key]["sell_price"]
-	$sell.text = "Sell 10\n£"+str(sell_price)
+	$sell.text = "Sell 10\n£"+str(sell_price*10)
 	
 
 

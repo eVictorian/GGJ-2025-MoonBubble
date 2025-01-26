@@ -16,11 +16,15 @@ func _process(delta: float) -> void:
 	if $Panel.visible:
 		if $Panel/time_left.visible:
 			if get_child_count() > 3:
+				if not tree:
+					$Panel/RichTextLabel.text = "\n[center]"+get_child(3).plant_key
 				if get_child(3).days_left() == 0:
 					$Panel/time_left.text = str(get_child(3).hours_left)+"Hs"
 				else:
 					$Panel/time_left.text = str(get_child(3).days_left())+"Ds"
-				
+			else:
+				$Panel/RichTextLabel.text = "\n[center]Empty"
+				$Panel/time_left.text = "0Hs"
 		$Panel/water_time.text = str(water_left)+"Hs"
 		
 		if Input.is_action_pressed("interact"):

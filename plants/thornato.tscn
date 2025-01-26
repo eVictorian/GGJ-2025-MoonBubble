@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvtrqh1ct01wc"]
+
+[ext_resource type="Script" path="res://plant.gd" id="1_x7io1"]
+[ext_resource type="Texture2D" uid="uid://rl3l7kp1dug6" path="res://Plant and Assets.png" id="2_ryoyl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngriq"]
+atlas = ExtResource("2_ryoyl")
+region = Rect2(1080, 640, 360, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cks50"]
+atlas = ExtResource("2_ryoyl")
+region = Rect2(1080, 480, 360, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oovh5"]
+atlas = ExtResource("2_ryoyl")
+region = Rect2(1080, 320, 360, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ee5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngriq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cks50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oovh5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Thornato" type="Node2D"]
+visibility_layer = 3
+z_index = -1
+script = ExtResource("1_x7io1")
+plant_key = "Thornato"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(33, -100)
+sprite_frames = SubResource("SpriteFrames_8ee5e")

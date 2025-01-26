@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://0iblwryo84ie"]
+
+[ext_resource type="Script" path="res://plant.gd" id="1_twrky"]
+[ext_resource type="Texture2D" uid="uid://rl3l7kp1dug6" path="res://Plant and Assets.png" id="2_10icd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wihr7"]
+atlas = ExtResource("2_10icd")
+region = Rect2(180, 640, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx6h8"]
+atlas = ExtResource("2_10icd")
+region = Rect2(180, 480, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_big16"]
+atlas = ExtResource("2_10icd")
+region = Rect2(180, 320, 180, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3h75"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wihr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_big16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Spato" type="Node2D"]
+visibility_layer = 3
+z_index = -1
+script = ExtResource("1_twrky")
+plant_key = "Spato"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, -92)
+sprite_frames = SubResource("SpriteFrames_x3h75")

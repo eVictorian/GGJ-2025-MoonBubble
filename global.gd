@@ -3,7 +3,7 @@ extends Node
 var money = 50
 
 var plants = {
-	"Tree": {"qty_produced":0,"growth_time":26280,"fertalizer":[["Glowberry",1],["Weird CaGlowberryctus",1],["Moonusvie",1]]},
+	"Tree": {"qty_produced":0,"growth_time":26280,"fertalizer":[["Glowberry",1],["Weird Cactus",1],["Moonusvie",1]]},
 	
 	"Spato": {"qty_produced":50,"growth_time":24,"fertalizer":[["none"]]},
 	"Big Flower": {"qty_produced":60,"growth_time":48,"fertalizer":[["none"]]},
@@ -15,8 +15,8 @@ var plants = {
 }
 
 var plant_products = {
-	"Spato":{"sell_price":5,"buy_price":10,"storage":50},
-	"Big Flower":{"sell_price":11,"buy_price":22,"storage":10},
+	"Spato":{"sell_price":5,"buy_price":10,"storage":8},
+	"Big Flower":{"sell_price":11,"buy_price":22,"storage":0},
 	"Thornato":{"sell_price":50,"buy_price":100,"storage":0},
 	"Glowberry":{"sell_price":12,"buy_price":24,"storage":0},
 	"Weird Cactus":{"sell_price":60,"buy_price":120,"storage":0},
