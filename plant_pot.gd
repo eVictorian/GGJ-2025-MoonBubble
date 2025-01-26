@@ -77,11 +77,11 @@ func new_plant(plant_scene: PackedScene) -> void:
 	
 
 func activateFertilizer(index: int):
-	get_child(3).hours_left /= 2
+	get_child(3).hours_left /= 3
 	get_child(2).get_child(5).get_child(index).self_modulate = Color(1,0,0)
 	get_child(2).get_child(5).get_child(index).active = true
 func deactivateFertilizer(index: int):
-	get_child(3).hours_left *= 2
+	get_child(3).hours_left *= 3
 	get_child(2).get_child(5).get_child(index).active = false
 	get_child(2).get_child(5).get_child(index).self_modulate = Color(0,1,0)
 	

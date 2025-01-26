@@ -54,7 +54,7 @@ timer = NodePath("hour")
 
 [node name="Polygon2D" type="Polygon2D" parent="UI"]
 color = Color(0.388955, 0.596713, 0.998258, 0.666667)
-polygon = PackedVector2Array(0, 128, 640, 128, 640, 0, 0, 0)
+polygon = PackedVector2Array(0, 128, 656, 128, 656, 0, 0, 0)
 
 [node name="time" type="RichTextLabel" parent="UI"]
 offset_left = 64.0
@@ -71,7 +71,7 @@ position = Vector2(1488, 704)
 [node name="money" type="RichTextLabel" parent="UI"]
 offset_left = 320.0
 offset_top = 16.0
-offset_right = 640.0
+offset_right = 608.0
 offset_bottom = 128.0
 theme = SubResource("Theme_5klw2")
 bbcode_enabled = true
