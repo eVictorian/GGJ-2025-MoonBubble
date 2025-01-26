@@ -5,16 +5,18 @@ extends Node2D
 var time_of_day = 0
 var dayLength = 13
 
+var oxygen_sell = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
-	$UI/money.text = "£"+str(Global.money)
+	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$UI/money.text = "£"+str(Global.money)
 
 func add_plant_time(time) -> void:
 	for i in range($pots.get_child_count()):
@@ -22,6 +24,9 @@ func add_plant_time(time) -> void:
 			var pot = $pots.get_child(i)
 			if pot.get_child_count() > 3:
 				if pot.water_left > 0:
+					if pot.tree == true:
+						print("TREE")
+						Global.money += oxygen_sell
 					var fertalizers = pot.get_child(2).get_child(5)
 					for f in range(fertalizers.get_child_count()):
 						if fertalizers.get_child(f).active == true:
