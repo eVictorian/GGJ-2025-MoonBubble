@@ -17,12 +17,17 @@ default_font = ExtResource("2_kxjgf")
 default_font_size = 25
 
 [node name="market_panel" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_left = 64.0
 offset_right = 104.0
 offset_bottom = 40.0
 script = ExtResource("1_1laa5")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.388235, 0.596078, 1, 0.666667)
+polygon = PackedVector2Array(-64, 0, 128, 0, 128, 128, -64, 128)
 
 [node name="buy" type="Button" parent="."]
 self_modulate = Color(0, 1, 0, 1)

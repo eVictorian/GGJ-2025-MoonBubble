@@ -3,11 +3,12 @@ extends Node2D
 @export var timer: Timer
 
 var time_of_day = 0
-var dayLength = 12
+var dayLength = 13
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
+	$UI/money.text = "£"+str(Global.money)
 	pass # Replace with function body.
 
 
@@ -23,9 +24,7 @@ func add_plant_time(time) -> void:
 				if pot.water_left > 0:
 					var fertalizers = pot.get_child(2).get_child(5)
 					for f in range(fertalizers.get_child_count()):
-						print(fertalizers.get_child(f).active)
 						if fertalizers.get_child(f).active == true:
-							print("AHSAgh")
 							if Global.plant_products[fertalizers.get_child(f).plant_key]["storage"] >= fertalizers.get_child(f).quantity_per_hour:
 								Global.plant_products[fertalizers.get_child(f).plant_key]["storage"] -= fertalizers.get_child(f).quantity_per_hour
 							else:

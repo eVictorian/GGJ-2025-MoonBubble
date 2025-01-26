@@ -1,12 +1,90 @@
-[gd_scene format=3 uid="uid://ceidf84666hkb"]
+[gd_scene load_steps=4 format=3 uid="uid://ceidf84666hkb"]
+
+[ext_resource type="Script" path="res://market.gd" id="1_7qxpr"]
+[ext_resource type="PackedScene" uid="uid://cqy53jroecj1" path="res://market_panel.tscn" id="1_uwqcv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxat8"]
+size = Vector2(112, 112)
 
 [node name="market" type="Node2D"]
+script = ExtResource("1_7qxpr")
 
 [node name="placeholder_visual" type="Polygon2D" parent="."]
+position = Vector2(0, -64)
+scale = Vector2(2, 2)
 polygon = PackedVector2Array(16, 0, 16, 24, 24, 24, 24, 32, 0, 40, 0, 64, 64, 64, 64, 32, 56, 32, 56, 24, 64, 24, 64, 0)
 
-[node name="Control" type="Control" parent="."]
+[node name="market_popup" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -480.0
+offset_top = -48.0
+offset_right = -440.0
+offset_bottom = -8.0
+metadata/_edit_use_anchors_ = true
+
+[node name="market_panel" parent="market_popup" instance=ExtResource("1_uwqcv")]
+offset_left = 192.0
+offset_top = -128.0
+offset_right = 232.0
+offset_bottom = -88.0
+plant_key = "Spato"
+
+[node name="market_panel2" parent="market_popup" instance=ExtResource("1_uwqcv")]
+offset_left = 192.0
+offset_top = -256.0
+offset_right = 232.0
+offset_bottom = -216.0
+plant_key = "Thornato"
+
+[node name="market_panel3" parent="market_popup" instance=ExtResource("1_uwqcv")]
+offset_left = 192.0
+offset_top = -384.0
+offset_right = 232.0
+offset_bottom = -344.0
+plant_key = "Spato"
+
+[node name="market_panel4" parent="market_popup" instance=ExtResource("1_uwqcv")]
+offset_left = 192.0
+offset_top = -512.0
+offset_right = 232.0
+offset_bottom = -472.0
+plant_key = "Spato"
+
+[node name="market_panel5" parent="market_popup" instance=ExtResource("1_uwqcv")]
+offset_left = 384.0
+offset_top = -128.0
+offset_right = 424.0
+offset_bottom = -88.0
+plant_key = "Spato"
+
+[node name="market_panel6" parent="market_popup" instance=ExtResource("1_uwqcv")]
+offset_left = 384.0
+offset_top = -256.0
+offset_right = 424.0
+offset_bottom = -216.0
+plant_key = "Spato"
+
+[node name="market_panel7" parent="market_popup" instance=ExtResource("1_uwqcv")]
+offset_left = 384.0
+offset_top = -384.0
+offset_right = 424.0
+offset_bottom = -344.0
+plant_key = "Spato"
+
+[node name="market_panel8" parent="market_popup" instance=ExtResource("1_uwqcv")]
+offset_left = 384.0
+offset_top = -512.0
+offset_right = 424.0
+offset_bottom = -472.0
+plant_key = "Spato"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, 8)
+shape = SubResource("RectangleShape2D_vxat8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

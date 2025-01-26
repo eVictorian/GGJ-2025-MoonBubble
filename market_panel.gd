@@ -4,6 +4,8 @@ extends Control
 
 var buy_price = 0
 var sell_price = 0
+
+ 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$name.text = plant_key
@@ -11,6 +13,7 @@ func _ready() -> void:
 	$buy.text = "Buy 10\n£"+str(buy_price)
 	sell_price = Global.plant_products[plant_key]["sell_price"]
 	$sell.text = "Sell 10\n£"+str(sell_price)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,8 +22,13 @@ func _process(delta: float) -> void:
 
 
 func _on_buy_pressed() -> void:
-	pass # Replace with function body.
-
+	if Global.money >= buy_price:
+		Global.money += buy_price
+		Global.plant_products[plant_key]["storage"] += 10
+		get_parent().get_parent().send_rocket = true
 
 func _on_sell_pressed() -> void:
-	pass # Replace with function body.
+	if Global.plant_products[plant_key]["storage"] >= 10:
+		Global.plant_products[plant_key]["storage"] -= 10
+		Global.money += sell_price
+		get_parent().get_parent().send_rocket = true

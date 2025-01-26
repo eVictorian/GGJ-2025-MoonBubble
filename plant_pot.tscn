@@ -33,6 +33,7 @@ color = Color(0.38811, 0.14373, 0.0352401, 1)
 polygon = PackedVector2Array(0, -64, 128, -64, 128, 64, 0, 64, 0, 0)
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_left = 64.0
 offset_top = -256.0
 offset_right = 408.0

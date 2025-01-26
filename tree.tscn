@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdv5f20gbt1sc"]
+
+[ext_resource type="Script" path="res://plant.gd" id="1_bjbxp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atjwm"]
+
+[node name="tree" type="Node2D"]
+visibility_layer = 3
+z_index = -1
+script = ExtResource("1_bjbxp")
+plant_key = "Tree"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_atjwm")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
+position = Vector2(8, 0)
+color = Color(0.473524, 0.260614, 0.0611233, 1)
+polygon = PackedVector2Array(-16, 0, -16, -80, -32, -80, -32, -96, -16, -96, -16, -112, -32, -128, -16, -128, 0, -128, 0, -112, 16, -96, 0, -96, 0, -80, 0, 0)

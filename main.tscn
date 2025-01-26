@@ -1,11 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://bf1rpok5tcagy"]
+[gd_scene load_steps=24 format=3 uid="uid://bf1rpok5tcagy"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_sn0rp"]
 [ext_resource type="Script" path="res://player.gd" id="1_xujb3"]
 [ext_resource type="PackedScene" uid="uid://b5trrx21l6bmk" path="res://plant_pot.tscn" id="2_kgt76"]
 [ext_resource type="FontFile" uid="uid://bmqhcx5n4lqx6" path="res://Minecraft.ttf" id="2_lr6cg"]
+[ext_resource type="PackedScene" uid="uid://ceidf84666hkb" path="res://market.tscn" id="3_3jmmu"]
 [ext_resource type="Script" path="res://bed.gd" id="4_6ki5i"]
+[ext_resource type="Script" path="res://plant_pot.gd" id="4_t3fhw"]
+[ext_resource type="PackedScene" uid="uid://bws626wxx05gc" path="res://seeding_panel.tscn" id="5_3vuxk"]
 [ext_resource type="PackedScene" uid="uid://d0eyrwd706yg0" path="res://plant_storage.tscn" id="6_5lnq4"]
+[ext_resource type="PackedScene" uid="uid://c83c8bblawp1h" path="res://place_holder_plant.tscn" id="6_ypsew"]
+[ext_resource type="PackedScene" uid="uid://bk30u0hpp4m4p" path="res://thornato.tscn" id="7_ym2s5"]
+[ext_resource type="PackedScene" uid="uid://ddtdm0qbuk8nb" path="res://fertilize.tscn" id="8_ecjym"]
+[ext_resource type="PackedScene" uid="uid://cdv5f20gbt1sc" path="res://tree.tscn" id="9_vcckg"]
 
 [sub_resource type="Theme" id="Theme_5klw2"]
 default_font = ExtResource("2_lr6cg")
@@ -22,6 +29,16 @@ size = Vector2(128, 992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5n10q"]
 size = Vector2(1248, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfjni"]
+size = Vector2(352, 128)
+
+[sub_resource type="Theme" id="Theme_7qc6l"]
+default_font = ExtResource("2_lr6cg")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_md0ry"]
+default_font = ExtResource("2_lr6cg")
 
 [sub_resource type="Theme" id="Theme_pjylw"]
 default_font = ExtResource("2_lr6cg")
@@ -47,6 +64,19 @@ offset_bottom = 144.0
 theme = SubResource("Theme_5klw2")
 bbcode_enabled = true
 text = "[center]10:00"
+
+[node name="market" parent="UI" instance=ExtResource("3_3jmmu")]
+position = Vector2(1488, 704)
+
+[node name="money" type="RichTextLabel" parent="UI"]
+offset_left = 320.0
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 128.0
+theme = SubResource("Theme_5klw2")
+bbcode_enabled = true
+text = "£0"
+text_direction = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -148,24 +178,158 @@ shape = SubResource("RectangleShape2D_fd3y6")
 
 [node name="pots" type="Node2D" parent="."]
 
-[node name="plant_pot" parent="pots" instance=ExtResource("2_kgt76")]
+[node name="tree" type="Node2D" parent="pots"]
+position = Vector2(832, 704)
+script = ExtResource("4_t3fhw")
+tree = true
+
+[node name="Area2D" type="Area2D" parent="pots/tree"]
+position = Vector2(-64, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pots/tree/Area2D"]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_mfjni")
+
+[node name="Polygon2D" type="Polygon2D" parent="pots/tree"]
+position = Vector2(-64, 0)
+color = Color(0.38811, 0.14373, 0.0352401, 1)
+polygon = PackedVector2Array(-112, -64, 240, -64, 240, 0, 240, 64, -112, 64, -112, 0)
+
+[node name="Panel" type="Panel" parent="pots/tree"]
+offset_left = 64.0
+offset_top = -256.0
+offset_right = 512.0
+offset_bottom = -64.0
+
+[node name="time_left" type="RichTextLabel" parent="pots/tree/Panel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 24.0
+offset_right = 432.0
+offset_bottom = 64.0
+theme = SubResource("Theme_7qc6l")
+bbcode_enabled = true
+text = "3Ds"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="water_time" type="RichTextLabel" parent="pots/tree/Panel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 88.0
+offset_right = 328.0
+offset_bottom = 128.0
+theme = SubResource("Theme_7qc6l")
+bbcode_enabled = true
+text = "2Hs"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="pots/tree/Panel"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(16, 16, 16, 176, 64, 176, 112, 176, 112, 16)
+
+[node name="seeding_menu" type="Control" parent="pots/tree/Panel"]
 visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="seeding_panel" parent="pots/tree/Panel/seeding_menu" instance=ExtResource("5_3vuxk")]
+layout_mode = 2
+offset_left = -272.0
+offset_top = -200.0
+offset_right = -16.0
+offset_bottom = -136.0
+plant_key = "Spato"
+plant_scene = ExtResource("6_ypsew")
+
+[node name="seeding_panel2" parent="pots/tree/Panel/seeding_menu" instance=ExtResource("5_3vuxk")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -136.0
+offset_right = -16.0
+offset_bottom = -72.0
+plant_key = "Thornato"
+plant_scene = ExtResource("7_ym2s5")
+
+[node name="seeding_panel3" parent="pots/tree/Panel/seeding_menu" instance=ExtResource("5_3vuxk")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -72.0
+offset_right = -16.0
+offset_bottom = -8.0
+plant_key = "Spato"
+
+[node name="seeding_panel4" parent="pots/tree/Panel/seeding_menu" instance=ExtResource("5_3vuxk")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -8.0
+offset_right = -16.0
+offset_bottom = 56.0
+plant_key = "Spato"
+
+[node name="seeding_panel5" parent="pots/tree/Panel/seeding_menu" instance=ExtResource("5_3vuxk")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = 56.0
+offset_right = -16.0
+offset_bottom = 120.0
+plant_key = "Spato"
+
+[node name="Button" type="Button" parent="pots/tree/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 120.0
+offset_bottom = 184.0
+theme = SubResource("Theme_md0ry")
+text = "Harvest"
+
+[node name="fertilize_menu" type="Control" parent="pots/tree/Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fertilize" parent="pots/tree/Panel/fertilize_menu" instance=ExtResource("8_ecjym")]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 120.0
+offset_right = 192.0
+offset_bottom = 184.0
+
+[node name="fertilize2" parent="pots/tree/Panel/fertilize_menu" instance=ExtResource("8_ecjym")]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_top = 120.0
+offset_right = 264.0
+offset_bottom = 184.0
+index = 1
+
+[node name="fertilize3" parent="pots/tree/Panel/fertilize_menu" instance=ExtResource("8_ecjym")]
+visible = false
+layout_mode = 0
+offset_left = 272.0
+offset_top = 120.0
+offset_right = 336.0
+offset_bottom = 184.0
+index = 2
+
+[node name="tree" parent="pots/tree" instance=ExtResource("9_vcckg")]
+
+[node name="plant_pot" parent="pots" instance=ExtResource("2_kgt76")]
 position = Vector2(320, 704)
 
 [node name="plant_pot2" parent="pots" instance=ExtResource("2_kgt76")]
-visible = false
 position = Vector2(576, 704)
 
-[node name="plant_pot3" parent="pots" instance=ExtResource("2_kgt76")]
-visible = false
-position = Vector2(832, 704)
-
 [node name="plant_pot4" parent="pots" instance=ExtResource("2_kgt76")]
-visible = false
 position = Vector2(1088, 704)
 
 [node name="plant_pot5" parent="pots" instance=ExtResource("2_kgt76")]
-visible = false
 position = Vector2(1344, 704)
 
 [node name="bed" type="Node2D" parent="."]
@@ -259,6 +423,8 @@ offset_top = 832.0
 offset_right = 1280.0
 offset_bottom = 1024.0
 
+[connection signal="body_entered" from="pots/tree/Area2D" to="pots/tree" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="pots/tree/Area2D" to="pots/tree" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="bed/Area2D" to="bed" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="bed/Area2D" to="bed" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="hour" to="." method="_on_hour_timeout"]

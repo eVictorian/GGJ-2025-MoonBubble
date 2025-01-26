@@ -3,6 +3,7 @@ extends Node
 var money = 50
 
 var plants = {
+	"Tree": {"qty_produced":0,"growth_time":8760,"fertalizer":[["Spato",5]]},
 	"Spato": {"qty_produced":50,"growth_time":24,"fertalizer":[["none"]]},
 	"Thornato": {"qty_produced":4,"growth_time":48,"fertalizer":[["Spato",1]]}
 }
