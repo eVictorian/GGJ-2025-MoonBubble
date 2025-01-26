@@ -155,27 +155,27 @@ offset_right = -432.0
 offset_bottom = -72.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Spato" parent="market_popup" instance=ExtResource("1_uwqcv")]
+[node name="Big Flower" parent="market_popup" instance=ExtResource("1_uwqcv")]
 offset_left = 224.0
 offset_top = 32.0
 offset_right = 264.0
 offset_bottom = 72.0
-plant_key = "Spato"
+plant_key = "Big Flower"
 
-[node name="Sprite2D" type="Sprite2D" parent="market_popup/Spato"]
+[node name="Sprite2D" type="Sprite2D" parent="market_popup/Big Flower"]
 z_index = 1
 position = Vector2(-277, 32)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_ofh20")
 
-[node name="Big Flower" parent="market_popup" instance=ExtResource("1_uwqcv")]
+[node name="Spato" parent="market_popup" instance=ExtResource("1_uwqcv")]
 offset_left = -32.0
 offset_top = 32.0
 offset_right = 8.0
 offset_bottom = 72.0
-plant_key = "Big Flower"
+plant_key = "Spato"
 
-[node name="Sprite2D" type="Sprite2D" parent="market_popup/Big Flower"]
+[node name="Sprite2D" type="Sprite2D" parent="market_popup/Spato"]
 position = Vector2(230, 30)
 scale = Vector2(0.4, 0.4)
 texture = SubResource("AtlasTexture_xca7l")

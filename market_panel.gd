@@ -22,13 +22,13 @@ func _process(delta: float) -> void:
 
 
 func _on_buy_pressed() -> void:
-	if Global.money >= buy_price:
-		Global.money += buy_price
+	if Global.money >= buy_price*10:
+		Global.money -= buy_price*10
 		Global.plant_products[plant_key]["storage"] += 10
 		get_parent().get_parent().send_rocket = true
 
 func _on_sell_pressed() -> void:
 	if Global.plant_products[plant_key]["storage"] >= 10:
 		Global.plant_products[plant_key]["storage"] -= 10
-		Global.money += sell_price
+		Global.money += sell_price*10
 		get_parent().get_parent().send_rocket = true

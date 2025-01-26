@@ -23,14 +23,14 @@ region = Rect2(0, 96, 192, 64)
 default_font = ExtResource("2_gkusu")
 default_font_size = 32
 
-[sub_resource type="Theme" id="Theme_ssi6t"]
-default_font = ExtResource("2_gkusu")
-
 [sub_resource type="Theme" id="Theme_s1sjj"]
 default_font = ExtResource("2_gkusu")
 default_font_size = 25
 
 [sub_resource type="Theme" id="Theme_y1n21"]
+default_font = ExtResource("2_gkusu")
+
+[sub_resource type="Theme" id="Theme_ssi6t"]
 default_font = ExtResource("2_gkusu")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_du40p"]
@@ -98,6 +98,43 @@ text = "3Ds"
 scroll_active = false
 autowrap_mode = 0
 
+[node name="water_time" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 269.333
+offset_top = 80.0
+offset_right = 325.333
+offset_bottom = 120.0
+theme = SubResource("Theme_wowl2")
+bbcode_enabled = true
+text = "2Hs"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 123.0
+offset_bottom = 107.0
+theme = SubResource("Theme_s1sjj")
+bbcode_enabled = true
+text = "
+"
+
+[node name="Polygon2D" type="Polygon2D" parent="Panel/RichTextLabel"]
+show_behind_parent = true
+position = Vector2(0, -11)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(10.6667, -0.333344, 10.6667, 106.333, 106.667, 106.333, 106.667, -0.333344)
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 128.0
+offset_right = 107.0
+offset_bottom = 176.0
+theme = SubResource("Theme_y1n21")
+text = "Harvest"
+
 [node name="placeholder2" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_left = 126.667
@@ -124,43 +161,6 @@ text = "Havetst in:
 "
 scroll_active = false
 autowrap_mode = 0
-
-[node name="water_time" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
-offset_left = 269.333
-offset_top = 80.0
-offset_right = 325.333
-offset_bottom = 120.0
-theme = SubResource("Theme_wowl2")
-bbcode_enabled = true
-text = "2Hs"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 123.0
-offset_bottom = 107.0
-theme = SubResource("Theme_s1sjj")
-bbcode_enabled = true
-text = "
-[center]Weird Cactus"
-
-[node name="Polygon2D" type="Polygon2D" parent="Panel/RichTextLabel"]
-show_behind_parent = true
-position = Vector2(0, -11)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(10.6667, -0.333344, 10.6667, 106.333, 106.667, 106.333, 106.667, -0.333344)
-
-[node name="Button" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 128.0
-offset_right = 107.0
-offset_bottom = 176.0
-theme = SubResource("Theme_y1n21")
-text = "Harvest"
 
 [node name="seeding_menu" type="Control" parent="Panel"]
 visible = false
